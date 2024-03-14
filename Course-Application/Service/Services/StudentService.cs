@@ -1,4 +1,8 @@
 ﻿using Domain.Models;
+using Repository.Repositories;
+using Repository.Repositories.Interfaces;
+using Service.Helpers.Constants;
+using Service.Helpers.Exceptions;
 using Service.Services.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -10,19 +14,67 @@ namespace Service.Services
 {
     public class StudentService : IStudentService
     {
-        public List<Student> GetByAge(int age)
+        private readonly IStudentRepository _StudentRepo;
+        private int count = 1;
+        public StudentService()
+        {
+            _StudentRepo=new StudentRepository();
+        }
+
+        public void Create(Student data)
+        {
+            if (data is null) throw new ArgumentNullException();
+            data.Id = count;
+            _StudentRepo.Create(data);
+            count++;
+        }
+
+        public void Delete(int? id)
+        {
+            if (id is null) throw new ArgumentNullException();
+
+            Student student = _StudentRepo.GetById((int)id);
+
+            if (student is null) throw new NotFoundException(ResponseMessages.DataNotFound);
+
+            _StudentRepo.Delete(student);
+        }
+        public void Update(Student data)
         {
             throw new NotImplementedException();
+        }
+
+        public List<Student> GetAll()
+        {
+            return _StudentRepo.GetAll();
+        }
+
+        public List<Student> GetByAge(int age)
+        {
+            return _StudentRepo.GetByAge( age);
         }
 
         public List<Student> GetByGroupId(int id)
         {
-            throw new NotImplementedException();
+            return _StudentRepo.GetByGroupId(id);
+        }
+
+        public Student GetById(int? id)
+        {
+            if (id is null) throw new ArgumentNullException();
+
+            Student student = _StudentRepo.GetById((int)id);
+
+            if (student is null) throw new NotFoundException(ResponseMessages.DataNotFound);
+
+            return student;
         }
 
         public List<Student> GetByNameOrSurname(string searchText)
         {
-            throw new NotImplementedException();
+            return _StudentRepo.GetByNameOrSurname(searchText);
         }
+
+      
     }
 }

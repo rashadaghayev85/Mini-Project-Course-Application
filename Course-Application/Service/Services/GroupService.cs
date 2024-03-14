@@ -51,12 +51,14 @@ namespace Service.Services
 
         public List<Group> GetAllByRoom(string roomName)
         {
-            throw new NotImplementedException();
+            var response=_GroupRepo.GetAllByRoom(roomName);
+            return response;
         }
 
         public List<Group> GetAllByTeacher(string teacherName)
         {
-            throw new NotImplementedException();
+            var response = _GroupRepo.GetAllByTeacher(teacherName);
+            return response;
         }
 
         public Group GetById(int? id)
@@ -72,7 +74,8 @@ namespace Service.Services
 
         public Group GetByName(string groupName)
         {
-            throw new NotImplementedException();
+            var response= _GroupRepo.GetByName(groupName);  
+            return response;
         }
 
         
