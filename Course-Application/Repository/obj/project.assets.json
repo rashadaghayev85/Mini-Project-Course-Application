@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {}
+    "net6.0": {
+      "Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Domain.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Domain/1.0.0": {
+      "type": "project",
+      "path": "../Domain/Domain.csproj",
+      "msbuildProject": "../Domain/Domain.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0": []
+    "net6.0": [
+      "Domain >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Rashad\\.nuget\\packages\\": {}
@@ -13,11 +32,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Rashad\\OneDrive\\Desktop\\PB101\\code\\Course-Application\\Repository\\Repository.csproj",
+      "projectUniqueName": "C:\\Users\\Rashad\\OneDrive\\Desktop\\Mini-Project-Course-Application\\Course-Application\\Repository\\Repository.csproj",
       "projectName": "Repository",
-      "projectPath": "C:\\Users\\Rashad\\OneDrive\\Desktop\\PB101\\code\\Course-Application\\Repository\\Repository.csproj",
+      "projectPath": "C:\\Users\\Rashad\\OneDrive\\Desktop\\Mini-Project-Course-Application\\Course-Application\\Repository\\Repository.csproj",
       "packagesPath": "C:\\Users\\Rashad\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Rashad\\OneDrive\\Desktop\\PB101\\code\\Course-Application\\Repository\\obj\\",
+      "outputPath": "C:\\Users\\Rashad\\OneDrive\\Desktop\\Mini-Project-Course-Application\\Course-Application\\Repository\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Rashad\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -33,7 +52,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Rashad\\OneDrive\\Desktop\\Mini-Project-Course-Application\\Course-Application\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\Rashad\\OneDrive\\Desktop\\Mini-Project-Course-Application\\Course-Application\\Domain\\Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

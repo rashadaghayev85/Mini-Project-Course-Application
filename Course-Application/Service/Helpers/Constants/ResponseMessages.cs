@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Service.Helpers.Constants
 {
-    internal class ResponseMessages
+    public class ResponseMessages
     {
+        public const string DataNotFound = "Data not found ";
     }
 }

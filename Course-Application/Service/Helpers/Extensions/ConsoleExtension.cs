@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Service.Helpers.Extensions
 {
-    internal class ConsoleExtension
+    public class ConsoleExtension
     {
     }
 }

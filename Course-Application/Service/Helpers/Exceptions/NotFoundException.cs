@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Service.Helpers.Exceptions
 {
-    internal class NotFoundException
+    public class NotFoundException:Exception
     {
+        public NotFoundException(string msj) : base(msj)
+        {
+            
+        }
     }
 }

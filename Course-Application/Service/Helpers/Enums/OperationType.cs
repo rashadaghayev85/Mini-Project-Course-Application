@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Service.Helpers.Enums
 {
-    internal enum OperationType
+    public enum OperationType
     {
     }
 }

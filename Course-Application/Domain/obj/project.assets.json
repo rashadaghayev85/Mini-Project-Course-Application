@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Rashad\\OneDrive\\Desktop\\PB101\\code\\Course-Application\\Domain\\Domain.csproj",
+      "projectUniqueName": "C:\\Users\\Rashad\\OneDrive\\Desktop\\Mini-Project-Course-Application\\Course-Application\\Domain\\Domain.csproj",
       "projectName": "Domain",
-      "projectPath": "C:\\Users\\Rashad\\OneDrive\\Desktop\\PB101\\code\\Course-Application\\Domain\\Domain.csproj",
+      "projectPath": "C:\\Users\\Rashad\\OneDrive\\Desktop\\Mini-Project-Course-Application\\Course-Application\\Domain\\Domain.csproj",
       "packagesPath": "C:\\Users\\Rashad\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Rashad\\OneDrive\\Desktop\\PB101\\code\\Course-Application\\Domain\\obj\\",
+      "outputPath": "C:\\Users\\Rashad\\OneDrive\\Desktop\\Mini-Project-Course-Application\\Course-Application\\Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Rashad\\AppData\\Roaming\\NuGet\\NuGet.Config",

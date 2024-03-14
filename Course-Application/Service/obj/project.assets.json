@@ -1,11 +1,48 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {}
+    "net6.0": {
+      "Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Domain.dll": {}
+        }
+      },
+      "Repository/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Repository.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Repository.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Domain/1.0.0": {
+      "type": "project",
+      "path": "../Domain/Domain.csproj",
+      "msbuildProject": "../Domain/Domain.csproj"
+    },
+    "Repository/1.0.0": {
+      "type": "project",
+      "path": "../Repository/Repository.csproj",
+      "msbuildProject": "../Repository/Repository.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0": []
+    "net6.0": [
+      "Repository >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Rashad\\.nuget\\packages\\": {}
@@ -13,11 +50,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Rashad\\OneDrive\\Desktop\\PB101\\code\\Course-Application\\Service\\Service.csproj",
+      "projectUniqueName": "C:\\Users\\Rashad\\OneDrive\\Desktop\\Mini-Project-Course-Application\\Course-Application\\Service\\Service.csproj",
       "projectName": "Service",
-      "projectPath": "C:\\Users\\Rashad\\OneDrive\\Desktop\\PB101\\code\\Course-Application\\Service\\Service.csproj",
+      "projectPath": "C:\\Users\\Rashad\\OneDrive\\Desktop\\Mini-Project-Course-Application\\Course-Application\\Service\\Service.csproj",
       "packagesPath": "C:\\Users\\Rashad\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Rashad\\OneDrive\\Desktop\\PB101\\code\\Course-Application\\Service\\obj\\",
+      "outputPath": "C:\\Users\\Rashad\\OneDrive\\Desktop\\Mini-Project-Course-Application\\Course-Application\\Service\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Rashad\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -33,7 +70,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Rashad\\OneDrive\\Desktop\\Mini-Project-Course-Application\\Course-Application\\Repository\\Repository.csproj": {
+              "projectPath": "C:\\Users\\Rashad\\OneDrive\\Desktop\\Mini-Project-Course-Application\\Course-Application\\Repository\\Repository.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

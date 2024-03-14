@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace Domain.Models
 {
-    internal class Group:BaseEntity
+    public class Group:BaseEntity
     {
-        public int Name { get; set; }
-        public int Teacher { get; set; }
+        public string Name { get; set; }
+        public string Teacher { get; set; }
         public string Room { get; set; }
     }
 }
