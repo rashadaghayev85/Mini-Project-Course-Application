@@ -8,5 +8,13 @@ namespace Service.Helpers.Enums
 {
     public enum OperationType
     {
+        GroupCreate=1,
+        StudentCreate,
+        StudentGetAll,
+        StudentGetByAge,
+        StudentDelete,
+        GetByGroupId
+
+
     }
 }
