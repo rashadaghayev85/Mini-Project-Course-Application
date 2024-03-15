@@ -120,7 +120,7 @@ namespace Course_Application.Controllers
                 try
                 {
                     var response = _studentService.GetById(id);
-                    Console.WriteLine("Name:"+response.Name+" Surname:"+response.Surname+" Age"+response.Age);
+                    Console.WriteLine("Name:"+response.Name+" Surname:"+response.Surname+" Age:"+response.Age);
                 }
                 catch (Exception ex)
                 {
@@ -136,7 +136,7 @@ namespace Course_Application.Controllers
         }
         public void GetByAge()
         {
-            ConsoleColor.Yellow.WriteConsole("search enter student   age:");
+            ConsoleColor.Yellow.WriteConsole("search enter student age:");
         Age: string ageStr =Console.ReadLine();
             int age;
             bool isCorrectAgeFormat = int.TryParse(ageStr, out age);
@@ -145,7 +145,7 @@ namespace Course_Application.Controllers
                 var response = _studentService.GetByAge(age);
                 foreach (var student in response)
                 {
-                    Console.WriteLine("Name: " + student.Name + "Surname: " + student.Surname + "Age: " + student.Age + "Id: " + student.Id);
+                    Console.WriteLine("Name:"+ student.Name + " Surname:" + student.Surname + " Age:" + student.Age + " Id:" + student.Id);
                 }
                 
             }
@@ -157,10 +157,10 @@ namespace Course_Application.Controllers
         }
         public void GetByGroupId()
         {
-            ConsoleColor.Cyan.WriteConsole("Add student id:");
-        Id: string idStr = Console.ReadLine();
+            ConsoleColor.Cyan.WriteConsole("Add group id:");
+        Id: string groupId = Console.ReadLine();
             int id;
-            bool isCorrectIdFormat = int.TryParse(idStr, out id);
+            bool isCorrectIdFormat = int.TryParse(groupId, out id);
             if (isCorrectIdFormat)
             {
                 try
@@ -198,7 +198,7 @@ namespace Course_Application.Controllers
                 foreach (var student in response)
 
                 {
-                    Console.WriteLine("Name: " + student.Name + " Surname: " + student.Surname + " Age: " + student.Age + " Id: " + student.Id+" Group Name:"+student.Group);
+                    Console.WriteLine("Name: " + student.Name + " Surname: " + student.Surname + " Age: " + student.Age + " Id: " + student.Id+" Group Name:"+student.Group.Name);
                 }
             }
 

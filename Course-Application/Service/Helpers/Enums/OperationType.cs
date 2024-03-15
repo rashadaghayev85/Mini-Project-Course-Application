@@ -9,12 +9,21 @@ namespace Service.Helpers.Enums
     public enum OperationType
     {
         GroupCreate=1,
+        GroupDelete,
+        GroupUpdate,
+        GroupGetAll,
+        GroupGetAllByRoom,
+        GroupGetAllByTeacher,
+        GroupGetById,
+        GroupGetByName,
         StudentCreate,
+        StudentDelete,
+        StudentUpdate,
         StudentGetAll,
         StudentGetByAge,
-        StudentDelete,
-        GetByGroupId
-
+        StudentGetById,
+        StudentGetByGroupId,
+        StudentGetByNameorSurname
 
     }
 }
