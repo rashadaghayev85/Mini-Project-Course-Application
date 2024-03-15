@@ -12,10 +12,12 @@ namespace Service.Services.Interfaces
         void Create(Student data);
         void Delete(int? id);
         void Update(Student data);
+        void DeleteAll(int? id);
         Student GetById(int? id);
         List<Student> GetAll();
         List<Student> GetByAge(int age);
         List<Student> GetByGroupId(int id);
         List<Student> GetByNameOrSurname(string searchText);
+
     }
 }

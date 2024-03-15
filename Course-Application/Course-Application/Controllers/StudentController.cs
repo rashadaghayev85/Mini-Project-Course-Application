@@ -15,9 +15,11 @@ namespace Course_Application.Controllers
     internal class StudentController
     {
         private readonly IStudentService _studentService;
+        private readonly IGroupService _groupService;
         public StudentController()
         {
-            _studentService=new StudentService();   
+            _studentService=new StudentService();
+            _groupService=new GroupService();
         }
         public void Create()
         {
@@ -43,8 +45,13 @@ namespace Course_Application.Controllers
                 ConsoleColor.Red.WriteConsole("Input can't be empty");
                 goto Groupname;
             }
-
-
+            var dedected=_groupService.GetByName(groupname);
+            if (dedected == null)
+            {
+                ConsoleColor.Red.WriteConsole("create student cannot,because group not exist");
+                return;
+            }
+               Group group=_groupService.GetByName(groupname);
             ConsoleColor.Cyan.WriteConsole("Add student age:");
             Age: string ageStr = Console.ReadLine();
             int age;
@@ -54,7 +61,7 @@ namespace Course_Application.Controllers
                 try
                 {
 
-                    _studentService.Create(new Student { Name = name, Surname = surname, Age = age, Group = new Group { Name = groupname } });
+                    _studentService.Create(new Student { Name = name, Surname = surname, Age = age, Group =  group });
 
                     ConsoleColor.Green.WriteConsole("Data successfully added");
                 }
@@ -77,7 +84,7 @@ namespace Course_Application.Controllers
             foreach (var student in result)
 
             {
-                Console.WriteLine("Name: " + student.Name + " Surname: " + student.Surname + " Age: " + student.Age + " Id: " + student.Id + " Group Name:" + student.Group);
+                Console.WriteLine("Name: " + student.Name + " Surname: " + student.Surname + " Age: " + student.Age + " Id: " + student.Id + " Group Name:" + student.Group.Name);
             }
         }
         public void Delete()

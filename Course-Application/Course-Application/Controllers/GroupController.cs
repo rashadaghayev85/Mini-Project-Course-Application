@@ -15,9 +15,11 @@ namespace Course_Application.Controllers
     public class GroupController
     {
         private readonly IGroupService _groupService;
+        private readonly IStudentService _studentService;
         public GroupController()
         {
             _groupService = new GroupService();
+            _studentService = new StudentService(); 
         }
         public void Create()
         {
@@ -63,7 +65,7 @@ namespace Course_Application.Controllers
         }
         public void Delete()
         {
-            ConsoleColor.Cyan.WriteConsole("Add student id:");
+            ConsoleColor.Cyan.WriteConsole("Add group id:");
         Id: string idStr = Console.ReadLine();
             int id;
             bool isCorrectIdFormat = int.TryParse(idStr, out id);
@@ -72,7 +74,9 @@ namespace Course_Application.Controllers
                 try
                 {
                     _groupService.Delete(id);
-                    ConsoleColor.Green.WriteConsole("Data successfully deleted");
+                    _studentService.DeleteAll(id);                 
+                    ConsoleColor.Green.WriteConsole("Group and its students successfully deleted");
+                    return;
                 }
                 catch (Exception ex)
                 {

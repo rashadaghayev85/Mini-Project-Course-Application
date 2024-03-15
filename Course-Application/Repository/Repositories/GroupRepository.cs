@@ -18,12 +18,12 @@ namespace Repository.Repositories
 
         public List<Group> GetAllByTeacher(string teacherName)
         {
-            return AppDbContext<Group>.datas.Where(m=>m.Teacher==teacherName).ToList();
+            return AppDbContext<Group>.datas.Where(m => m.Teacher == teacherName).ToList();
         }
 
         public Group GetByName(string groupName)
         {
-            return AppDbContext<Group>.datas.FirstOrDefault(m=>m.Name==groupName);
+            return AppDbContext<Group>.datas.FirstOrDefault(m => m.Name == groupName);
         }
     }
 }

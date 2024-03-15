@@ -11,6 +11,12 @@ namespace Repository.Repositories
 {
     public class StudentRepository : BaseRepository<Student>, IStudentRepository
     {
+        public void DeleteAll(int id)
+        {
+            AppDbContext<Student>.datas.RemoveAll(m => m.Group.Id == id);
+
+        }
+
         public List<Student> GetByAge(int age)
         {
             return AppDbContext<Student>.datas.Where(m=>m.Age==age).ToList();

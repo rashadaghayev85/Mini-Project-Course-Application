@@ -12,5 +12,6 @@ namespace Repository.Repositories.Interfaces
         List<Student> GetByAge(int age);
         List<Student> GetByGroupId(int id);
         List<Student> GetByNameOrSurname(string searchText);
+        void DeleteAll(int id);
     }
 }

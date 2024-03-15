@@ -1,4 +1,5 @@
 ﻿using Domain.Models;
+using Repository.Data;
 using Repository.Repositories;
 using Repository.Repositories.Interfaces;
 using Service.Helpers.Constants;
@@ -15,10 +16,12 @@ namespace Service.Services
     public class StudentService : IStudentService
     {
         private readonly IStudentRepository _StudentRepo;
+      
         private int count = 1;
         public StudentService()
         {
-            _StudentRepo=new StudentRepository();
+            _StudentRepo = new StudentRepository();
+            
         }
 
         public void Create(Student data)
@@ -38,6 +41,18 @@ namespace Service.Services
             if (student is null) throw new NotFoundException(ResponseMessages.DataNotFound);
 
             _StudentRepo.Delete(student);
+        }
+        public void DeleteAll(int ? id)
+        {
+            if (id is null) throw new ArgumentNullException();
+
+            List<Student> students =_StudentRepo.GetAllWithExpression(s => s.Group.Id == id);
+
+            if (students is null) throw new NotFoundException(ResponseMessages.DataNotFound);
+            
+             _StudentRepo.DeleteAll((int)id);
+            
+            
         }
         public void Update(Student data)
         {
