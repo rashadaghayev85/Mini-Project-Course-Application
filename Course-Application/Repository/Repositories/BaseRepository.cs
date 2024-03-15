@@ -22,7 +22,8 @@ namespace Repository.Repositories
         }
         public void Update(T entity)
         {
-            throw new NotImplementedException();
+            entity=AppDbContext<T>.datas.FirstOrDefault(m=>m.Id.Equals(entity));   
+            
         }
 
         public List<T> GetAll()

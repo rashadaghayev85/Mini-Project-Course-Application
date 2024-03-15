@@ -41,7 +41,9 @@ namespace Service.Services
         }
         public void Update(Group data)
         {
-            throw new NotImplementedException();
+            if (data is null) throw new ArgumentNullException();
+               _GroupRepo.Update(data);
+
         }
 
         public List<Group> GetAll()
@@ -67,7 +69,7 @@ namespace Service.Services
 
             Group group = _GroupRepo.GetById((int)id);
 
-            if (group is null) throw new NotFoundException(ResponseMessages.DataNotFound);
+           // if (group is null) throw new NotFoundException(ResponseMessages.DataNotFound);
 
             return group;
         }

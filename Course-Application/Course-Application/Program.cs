@@ -6,7 +6,7 @@ GroupController groupController = new GroupController();
 StudentController studentController = new StudentController();
 while (true)
 {
-    GetMenues();
+     GetMenues();
 Operation: string operationStr = Console.ReadLine();
 
     int operation;
@@ -23,7 +23,7 @@ Operation: string operationStr = Console.ReadLine();
                 groupController.Delete();
                 break;
             case (int)OperationType.GroupUpdate:
-                groupController.GetAll();
+                groupController.Update();
                 break;
 
             case (int)OperationType.GroupGetAll:

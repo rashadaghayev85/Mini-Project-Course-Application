@@ -56,7 +56,8 @@ namespace Service.Services
         }
         public void Update(Student data)
         {
-            throw new NotImplementedException();
+            if (data is null) throw new ArgumentNullException();
+            _StudentRepo.Update(data);
         }
 
         public List<Student> GetAll()
