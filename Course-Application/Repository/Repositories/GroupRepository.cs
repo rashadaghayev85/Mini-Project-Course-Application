@@ -23,7 +23,12 @@ namespace Repository.Repositories
 
         public Group GetByName(string groupName)
         {
-            return AppDbContext<Group>.datas.FirstOrDefault(m => m.Name == groupName);
+            return AppDbContext<Group>.datas.FirstOrDefault(m => m.Name==groupName);
+        }
+
+        public List<Group> SearchGroupsByName(string groupName)
+        {
+            return AppDbContext<Group>.datas.Where(m => m.Name.ToLower().Trim().StartsWith(groupName.ToLower().Trim())).ToList();
         }
     }
 }

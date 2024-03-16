@@ -39,8 +39,8 @@ Operation: string operationStr = Console.ReadLine();
             case (int)OperationType.GroupGetById:
                 groupController.GetById();
                 break;
-            case (int)OperationType.GroupGetByName:
-                groupController.GetByName();
+            case (int)OperationType.GroupsGetByName:
+                groupController.SearchGroupsByName();
                 break;
             case (int)OperationType.StudentCreate:
                 studentController.Create();
@@ -79,9 +79,20 @@ Operation: string operationStr = Console.ReadLine();
 }
 static void GetMenues()
 {
-    ConsoleColor.Cyan.WriteConsole("Choose one operation :\n  " +
-        "Group opinion:\n"+
-        "1-Group create,2-Group Delete,3-Group Uptade,4-Group Get All,5-Group Get All By Room,6-Group Get All By Teacher,7-Group Get By Id,8-Group Get By Name\n" +
-        "Student opinion:\n" +
-        "9-Student create,10-Student delete,11-Student update 12-Get all students, 13-StudentGetByAge,14-Student Get By Id,15-Student Get By GroupId,16-Student Get By Name or Surname");
+    ConsoleColor.Cyan.WriteConsole("Choose one operation :\n" +
+         "----------------------------" + "-----------------------------\n" +
+        "| Group opinion:            |" + "Student opinion:            |\n" +
+        "|---------------------------|" + "--------------------------- |\n" +
+        "| 1-Group Create            |" + "9-Student Create            |\n" +
+        "| 2-Group Delete            |" + "10-Student Delete           |\n" +
+        "| 3-Group Uptade            |" + "11-Student Update           |\n" +
+        "| 4-Group Get All           |" + "12-Get all students         |\n" +
+        "| 5-Group Get All By Room   |" + "13-Student Get By Age       |\n" +
+        "| 6-Group Get All By Teacher|" + "14-Student Get By Id        |\n" +
+        "| 7-Group Get By Id         |" + "15-Student Get By Group Id  |\n" +
+        "| 8-Groups Get By Name      |" + "16-StudentGetByNameOrSurname|\n" +
+        "----------------------------------------------------------\n" );
+
+         
 }
+//1 - Group create,2-Group Delete,3-Group Uptade

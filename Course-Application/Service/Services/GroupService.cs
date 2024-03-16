@@ -74,12 +74,19 @@ namespace Service.Services
             return group;
         }
 
+       
+
         public Group GetByName(string groupName)
         {
-            var response= _GroupRepo.GetByName(groupName);  
+            var response = _GroupRepo.GetByName(groupName);
             return response;
         }
 
-        
+        public List<Group> SearchGroupsByName(string groupName)
+        {
+
+            var response = _GroupRepo.SearchGroupsByName(groupName);
+            return response;
+        }
     }
 }

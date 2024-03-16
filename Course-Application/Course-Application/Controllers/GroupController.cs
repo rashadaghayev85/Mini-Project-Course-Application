@@ -32,11 +32,23 @@ namespace Course_Application.Controllers
             {
                 return;
             }
-            ConsoleColor.Cyan.WriteConsole("Add Group name:");
-        Name: string name = Console.ReadLine();
-            if (string.IsNullOrWhiteSpace(name))
+           Name: ConsoleColor.Cyan.WriteConsole("Add Group name:");
+              string groupName = Console.ReadLine();
+            if (string.IsNullOrWhiteSpace(groupName))
             {
                 ConsoleColor.Red.WriteConsole(ResponseMessages.EmptyString);
+                goto Name;
+            }
+           var response= _groupService.GetByName(groupName);
+            if (response != null)
+            {
+                ConsoleColor.Red.WriteConsole("a group with this name exists");
+                ConsoleColor.DarkMagenta.WriteConsole("Do you want to continue creating a group ?\n1-Yes(press any button)   2-No,Back Menu");
+                string chooseeStr = Console.ReadLine();
+                if (chooseeStr == "2")
+                {
+                    return;
+                }
                 goto Name;
             }
 
@@ -75,7 +87,7 @@ namespace Course_Application.Controllers
 
             try
             {
-                _groupService.Create(new Group { Name = name, Teacher = teacherName, Room = roomName });
+                _groupService.Create(new Group { Name = groupName.Trim(), Teacher = teacherName.Trim(), Room = roomName.Trim()  });
 
 
                 ConsoleColor.Green.WriteConsole(ResponseMessages.SuccesOperation);
@@ -129,6 +141,7 @@ namespace Course_Application.Controllers
             {
                 return;
             }
+            bool update = true;
         Id: ConsoleColor.Yellow.WriteConsole("Select the Id you want to update:");
             string idStr=Console.ReadLine();
             int id;
@@ -145,26 +158,36 @@ namespace Course_Application.Controllers
                     }
                     Console.WriteLine(" enter new name ");
                     string newName = Console.ReadLine();
-                    if (newName != string.Empty)
+                    if (!string.IsNullOrWhiteSpace(newName))
                     {
                         data.Name = newName;
+                        update = false; 
                     }
                     Console.WriteLine("enter new teacher");
                     string newTeacher = Console.ReadLine();
-                    if (newTeacher != string.Empty)
+                    if (!string.IsNullOrWhiteSpace(newTeacher))
                     {
                         data.Teacher = newTeacher;
+                        update = false;
                     }
                     Console.WriteLine(" enter new romm ");
                     string newRoom = Console.ReadLine();
-                    if (newRoom != string.Empty)
+                    if (!string.IsNullOrWhiteSpace(newRoom))
                     {
                         data.Room = newRoom;
+                        update = false;
                     }
 
-
-                    _groupService.Update(data);
-                    ConsoleColor.Green.WriteConsole("Data update succes");
+                    if (update)
+                    {
+                        ConsoleColor.DarkYellow.WriteConsole("there was no change");
+                    }
+                    else
+                    {
+                        _groupService.Update(data);
+                        ConsoleColor.Green.WriteConsole("Data update succes");
+                    }
+                    
                 }
                 catch (Exception ex)
                 { 
@@ -330,7 +353,7 @@ namespace Course_Application.Controllers
                 goto Id;
             }
         }
-        public void GetByName()
+        public void SearchGroupsByName()
         {
             ConsoleColor.DarkMagenta.WriteConsole("Do you want to continue the process?\n1-Yes(press any button)   2-No,Back Menu");
             string chooseStr = Console.ReadLine();
@@ -349,8 +372,8 @@ namespace Course_Application.Controllers
 
             //try
             //{
-                var response = _groupService.GetByName(groupName);
-                if (response is null)
+                var response = _groupService.SearchGroupsByName(groupName);
+                if (response.Count==0)
                 {
                     ConsoleColor.Red.WriteConsole(ResponseMessages.DataNotFound);
                 count++;
@@ -363,7 +386,14 @@ namespace Course_Application.Controllers
                 }
             else
             {
-                ConsoleColor.DarkGray.WriteConsole("Group Name: " + response.Name + " Teacher Name: " + response.Teacher + " Room Name: " + response.Room + " Id: " + response.Id);
+                foreach (var item in response)
+                {
+                    ConsoleColor.DarkGray.WriteConsole("Group Name: " + item.Name + " Teacher Name: " + item.Teacher + " Room Name: " + item.Room + " Id: " + item.Id);
+
+
+                }
+               
+               
 
             }
 

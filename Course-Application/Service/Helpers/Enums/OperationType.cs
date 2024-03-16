@@ -15,7 +15,7 @@ namespace Service.Helpers.Enums
         GroupGetAllByRoom,
         GroupGetAllByTeacher,
         GroupGetById,
-        GroupGetByName,
+        GroupsGetByName,
         StudentCreate,
         StudentDelete,
         StudentUpdate,
