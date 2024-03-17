@@ -30,7 +30,7 @@ namespace Repository.Repositories
 
         public List<Student> GetByNameOrSurname(string searchText)
         {
-            return AppDbContext<Student>.datas.Where(m=>m.Name==searchText||m.Surname==searchText).ToList();    
+            return AppDbContext<Student>.datas.Where(m=>m.Name.ToLower().Trim().Contains(searchText.ToLower().Trim())||m.Surname.ToLower().Trim().Contains(searchText.ToLower().Trim())).ToList();    
         }
     }
 }

@@ -303,10 +303,10 @@ namespace Course_Application.Controllers
                 return;
             }
             int count = 0;
-            ConsoleColor.Cyan.WriteConsole("Add group id:");
+            ConsoleColor.Cyan.WriteConsole("Add group Id:");
         Id: string idStr = Console.ReadLine();
             int id;
-            
+             
             bool isCorrectIdFormat = int.TryParse(idStr, out id);
             if (isCorrectIdFormat)
             {
