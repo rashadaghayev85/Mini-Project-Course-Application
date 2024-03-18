@@ -28,6 +28,12 @@ namespace Course_Application.Controllers
         }
         public void Create()
         {
+            ConsoleColor.DarkMagenta.WriteConsole("Do you want to continue the process?\n1-Yes(press any button)   2-No,Back Menu");
+            string chooseStr = Console.ReadLine();
+            if (chooseStr == "2")
+            {
+                return;
+            }
             var result = _groupService.GetAll();
             if (result.Count == 0)
             {
@@ -124,9 +130,19 @@ namespace Course_Application.Controllers
         }
         public void GetAll()
         {
+            ConsoleColor.DarkMagenta.WriteConsole("Do you want to continue the process?\n1-Yes(press any button)   2-No,Back Menu");
+            string chooseStr = Console.ReadLine();
+            if (chooseStr == "2")
+            {
+                return;
+            }
             var result = _studentService.GetAll();
+            if (result.Count == 0)
+            {
+                ConsoleColor.Red.WriteConsole(ResponseMessages.DataNotFound);
+                return;
+            }
             foreach (var student in result)
-
             {
                 Console.WriteLine("Name: " + student.Name + " Surname: " + student.Surname + " Age: " + student.Age + " Id: " + student.Id + " Group Name:" + student.Group.Name);
             }
@@ -135,6 +151,12 @@ namespace Course_Application.Controllers
 
         public void Delete()
         {
+            ConsoleColor.DarkMagenta.WriteConsole("Do you want to continue the process?\n1-Yes(press any button)   2-No,Back Menu");
+            string chooseStr = Console.ReadLine();
+            if (chooseStr == "2")
+            {
+                return;
+            }
             int count = 0;
             ConsoleColor.Cyan.WriteConsole("Add student id:");
         Id: string idStr = Console.ReadLine();
@@ -153,6 +175,8 @@ namespace Course_Application.Controllers
 
                     if (_helperService.CheckTryCount(ref count))
                     {
+                        ConsoleColor.Green.WriteConsole(ResponseMessages.ProcessFinish);
+
                         return;
                     }
 
@@ -167,6 +191,7 @@ namespace Course_Application.Controllers
         }
         public void Update()
         {
+            
             try
             {
 
@@ -288,6 +313,12 @@ namespace Course_Application.Controllers
         }
         public void GetById()
         {
+            ConsoleColor.DarkMagenta.WriteConsole("Do you want to continue the process?\n1-Yes(press any button)   2-No,Back Menu");
+            string chooseStr = Console.ReadLine();
+            if (chooseStr == "2")
+            {
+                return;
+            }
             int count = 0;
             ConsoleColor.Cyan.WriteConsole("Add student id:");
         Id: string idStr = Console.ReadLine();
@@ -320,13 +351,32 @@ namespace Course_Application.Controllers
         }
         public void GetByAge()
         {
-            ConsoleColor.Yellow.WriteConsole("search enter student age:");
-        Age: string ageStr = Console.ReadLine();
+            ConsoleColor.DarkMagenta.WriteConsole("Do you want to continue the process?\n1-Yes(press any button)   2-No,Back Menu");
+            string chooseStr = Console.ReadLine();
+            if (chooseStr == "2")
+            {
+                return;
+            }
+            int count = 0;
+        Age: ConsoleColor.Yellow.WriteConsole("search enter student age:");
+            string ageStr = Console.ReadLine();
             int age;
             bool isCorrectAgeFormat = int.TryParse(ageStr, out age);
             if (isCorrectAgeFormat)
             {
                 var response = _studentService.GetByAge(age);
+                if (response.Count == 0)
+                {
+                    if (_helperService.CheckTryCount(ref count))
+                    {
+                        ConsoleColor.Green.WriteConsole(ResponseMessages.ProcessFinish);
+
+                        return;
+                    }
+                    ConsoleColor.Red.WriteConsole(ResponseMessages.DataNotFound);
+                    goto Age;
+
+                }
                 foreach (var student in response)
                 {
                     Console.WriteLine("Name:" + student.Name + " Surname:" + student.Surname + " Age:" + student.Age + " Id:" + student.Id);
@@ -344,6 +394,12 @@ namespace Course_Application.Controllers
         }
         public void GetByGroupId()
         {
+            ConsoleColor.DarkMagenta.WriteConsole("Do you want to continue the process?\n1-Yes(press any button)   2-No,Back Menu");
+            string chooseStr = Console.ReadLine();
+            if (chooseStr == "2")
+            {
+                return;
+            }
             ConsoleColor.DarkYellow.WriteConsole("Enter the group ID you are looking for");
         Id: string groupId = Console.ReadLine();
             int id;
@@ -386,16 +442,34 @@ namespace Course_Application.Controllers
 
         public void GetByNameOrSurname()
         {
-            ConsoleColor.Cyan.WriteConsole("Add search name or surname:");
-        searchText: string searchText = Console.ReadLine();
+            ConsoleColor.DarkMagenta.WriteConsole("Do you want to continue the process?\n1-Yes(press any button)   2-No,Back Menu");
+            string chooseStr = Console.ReadLine();
+            if (chooseStr == "2")
+            {
+                return;
+            }
+            int count = 0;
+        SearchText: ConsoleColor.Cyan.WriteConsole("Add search name or surname:");
+            string searchText = Console.ReadLine();
             if (string.IsNullOrWhiteSpace(searchText))
             {
                 ConsoleColor.Red.WriteConsole("Input can't be empty");
-                goto searchText;
+                goto SearchText;
             }
             else
             {
                 var response = _studentService.GetByNameOrSurname(searchText);
+                if (response.Count == 0)
+                {
+                    if (_helperService.CheckTryCount(ref count))
+                    {
+                        ConsoleColor.Green.WriteConsole(ResponseMessages.ProcessFinish);
+
+                        return;
+                    }
+                    ConsoleColor.Red.WriteConsole(ResponseMessages.DataNotFound);
+                    goto SearchText;
+                }
                 foreach (var student in response)
 
                 {

@@ -405,10 +405,15 @@ namespace Course_Application.Controllers
             //try
             //{
             var response = _groupService.SearchGroupsByName(groupName);
-            if (response is null)
+            if (response.Count==0)
             {
 
                 ConsoleColor.Red.WriteConsole(ResponseMessages.DataNotFound);
+                if (_helperService.CheckTryCount(ref count))
+                {
+                    ConsoleColor.DarkGreen.WriteConsole(ResponseMessages.ProcessFinish);
+                    return;
+                }
 
                 goto GroupName;
             }

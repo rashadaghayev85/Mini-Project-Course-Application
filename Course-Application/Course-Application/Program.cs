@@ -4,6 +4,15 @@ using Service.Helpers.Extensions;
 
 GroupController groupController = new GroupController();
 StudentController studentController = new StudentController();
+ConsoleColor.DarkYellow.WriteConsole("You Are Welcome Our Page");
+
+
+ConsoleColor.DarkMagenta.WriteConsole("Do you want to continue our page ?\n1-Yes(press any button)   2-No,Back Menu");
+string chooseStr = Console.ReadLine();
+if (chooseStr == "2")
+{
+    return;
+}
 while (true)
 {
     GetMenues();
@@ -77,8 +86,14 @@ Operation: string operationStr = Console.ReadLine();
         goto Operation;
     }
 }
+//void ShowText()
+//{
+//    ConsoleColor.DarkYellow.WriteConsole("You Are Welcome Our Page");
+//}
 static void GetMenues()
 {
+    
+
     ConsoleColor.Cyan.WriteConsole("Choose one operation :\n" +
                                      "    ----------------------------" + "-----------------------------\n" +
                                     "    | Group opinion:            |" + "Student opinion:            |\n" +
