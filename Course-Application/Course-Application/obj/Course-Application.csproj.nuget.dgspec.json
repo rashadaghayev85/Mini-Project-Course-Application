@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Rashad\\OneDrive\\Desktop\\Новая папка\\Mini-Project-Course-Application\\Course-Application\\Course-Application\\Course-Application.csproj": {}
+    "C:\\Users\\Rashad\\OneDrive\\Desktop\\Mini-Project-Course-Application\\Mini-Project-Course-Application\\Course-Application\\Course-Application\\Course-Application.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Rashad\\OneDrive\\Desktop\\Новая папка\\Mini-Project-Course-Application\\Course-Application\\Course-Application\\Course-Application.csproj": {
+    "C:\\Users\\Rashad\\OneDrive\\Desktop\\Mini-Project-Course-Application\\Mini-Project-Course-Application\\Course-Application\\Course-Application\\Course-Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Rashad\\OneDrive\\Desktop\\Новая папка\\Mini-Project-Course-Application\\Course-Application\\Course-Application\\Course-Application.csproj",
+        "projectUniqueName": "C:\\Users\\Rashad\\OneDrive\\Desktop\\Mini-Project-Course-Application\\Mini-Project-Course-Application\\Course-Application\\Course-Application\\Course-Application.csproj",
         "projectName": "Course-Application",
-        "projectPath": "C:\\Users\\Rashad\\OneDrive\\Desktop\\Новая папка\\Mini-Project-Course-Application\\Course-Application\\Course-Application\\Course-Application.csproj",
+        "projectPath": "C:\\Users\\Rashad\\OneDrive\\Desktop\\Mini-Project-Course-Application\\Mini-Project-Course-Application\\Course-Application\\Course-Application\\Course-Application.csproj",
         "packagesPath": "C:\\Users\\Rashad\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Rashad\\OneDrive\\Desktop\\Новая папка\\Mini-Project-Course-Application\\Course-Application\\Course-Application\\obj\\",
+        "outputPath": "C:\\Users\\Rashad\\OneDrive\\Desktop\\Mini-Project-Course-Application\\Mini-Project-Course-Application\\Course-Application\\Course-Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Rashad\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Rashad\\OneDrive\\Desktop\\Новая папка\\Mini-Project-Course-Application\\Course-Application\\Service\\Service.csproj": {
-                "projectPath": "C:\\Users\\Rashad\\OneDrive\\Desktop\\Новая папка\\Mini-Project-Course-Application\\Course-Application\\Service\\Service.csproj"
+              "C:\\Users\\Rashad\\OneDrive\\Desktop\\Mini-Project-Course-Application\\Mini-Project-Course-Application\\Course-Application\\Service\\Service.csproj": {
+                "projectPath": "C:\\Users\\Rashad\\OneDrive\\Desktop\\Mini-Project-Course-Application\\Mini-Project-Course-Application\\Course-Application\\Service\\Service.csproj"
               }
             }
           }
@@ -63,14 +63,14 @@
         }
       }
     },
-    "C:\\Users\\Rashad\\OneDrive\\Desktop\\Новая папка\\Mini-Project-Course-Application\\Course-Application\\Domain\\Domain.csproj": {
+    "C:\\Users\\Rashad\\OneDrive\\Desktop\\Mini-Project-Course-Application\\Mini-Project-Course-Application\\Course-Application\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Rashad\\OneDrive\\Desktop\\Новая папка\\Mini-Project-Course-Application\\Course-Application\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Rashad\\OneDrive\\Desktop\\Mini-Project-Course-Application\\Mini-Project-Course-Application\\Course-Application\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\Rashad\\OneDrive\\Desktop\\Новая папка\\Mini-Project-Course-Application\\Course-Application\\Domain\\Domain.csproj",
+        "projectPath": "C:\\Users\\Rashad\\OneDrive\\Desktop\\Mini-Project-Course-Application\\Mini-Project-Course-Application\\Course-Application\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\Rashad\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Rashad\\OneDrive\\Desktop\\Новая папка\\Mini-Project-Course-Application\\Course-Application\\Domain\\obj\\",
+        "outputPath": "C:\\Users\\Rashad\\OneDrive\\Desktop\\Mini-Project-Course-Application\\Mini-Project-Course-Application\\Course-Application\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Rashad\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -118,14 +118,14 @@
         }
       }
     },
-    "C:\\Users\\Rashad\\OneDrive\\Desktop\\Новая папка\\Mini-Project-Course-Application\\Course-Application\\Repository\\Repository.csproj": {
+    "C:\\Users\\Rashad\\OneDrive\\Desktop\\Mini-Project-Course-Application\\Mini-Project-Course-Application\\Course-Application\\Repository\\Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Rashad\\OneDrive\\Desktop\\Новая папка\\Mini-Project-Course-Application\\Course-Application\\Repository\\Repository.csproj",
+        "projectUniqueName": "C:\\Users\\Rashad\\OneDrive\\Desktop\\Mini-Project-Course-Application\\Mini-Project-Course-Application\\Course-Application\\Repository\\Repository.csproj",
         "projectName": "Repository",
-        "projectPath": "C:\\Users\\Rashad\\OneDrive\\Desktop\\Новая папка\\Mini-Project-Course-Application\\Course-Application\\Repository\\Repository.csproj",
+        "projectPath": "C:\\Users\\Rashad\\OneDrive\\Desktop\\Mini-Project-Course-Application\\Mini-Project-Course-Application\\Course-Application\\Repository\\Repository.csproj",
         "packagesPath": "C:\\Users\\Rashad\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Rashad\\OneDrive\\Desktop\\Новая папка\\Mini-Project-Course-Application\\Course-Application\\Repository\\obj\\",
+        "outputPath": "C:\\Users\\Rashad\\OneDrive\\Desktop\\Mini-Project-Course-Application\\Mini-Project-Course-Application\\Course-Application\\Repository\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Rashad\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -142,8 +142,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Rashad\\OneDrive\\Desktop\\Новая папка\\Mini-Project-Course-Application\\Course-Application\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\Rashad\\OneDrive\\Desktop\\Новая папка\\Mini-Project-Course-Application\\Course-Application\\Domain\\Domain.csproj"
+              "C:\\Users\\Rashad\\OneDrive\\Desktop\\Mini-Project-Course-Application\\Mini-Project-Course-Application\\Course-Application\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\Rashad\\OneDrive\\Desktop\\Mini-Project-Course-Application\\Mini-Project-Course-Application\\Course-Application\\Domain\\Domain.csproj"
               }
             }
           }
@@ -177,14 +177,14 @@
         }
       }
     },
-    "C:\\Users\\Rashad\\OneDrive\\Desktop\\Новая папка\\Mini-Project-Course-Application\\Course-Application\\Service\\Service.csproj": {
+    "C:\\Users\\Rashad\\OneDrive\\Desktop\\Mini-Project-Course-Application\\Mini-Project-Course-Application\\Course-Application\\Service\\Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Rashad\\OneDrive\\Desktop\\Новая папка\\Mini-Project-Course-Application\\Course-Application\\Service\\Service.csproj",
+        "projectUniqueName": "C:\\Users\\Rashad\\OneDrive\\Desktop\\Mini-Project-Course-Application\\Mini-Project-Course-Application\\Course-Application\\Service\\Service.csproj",
         "projectName": "Service",
-        "projectPath": "C:\\Users\\Rashad\\OneDrive\\Desktop\\Новая папка\\Mini-Project-Course-Application\\Course-Application\\Service\\Service.csproj",
+        "projectPath": "C:\\Users\\Rashad\\OneDrive\\Desktop\\Mini-Project-Course-Application\\Mini-Project-Course-Application\\Course-Application\\Service\\Service.csproj",
         "packagesPath": "C:\\Users\\Rashad\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Rashad\\OneDrive\\Desktop\\Новая папка\\Mini-Project-Course-Application\\Course-Application\\Service\\obj\\",
+        "outputPath": "C:\\Users\\Rashad\\OneDrive\\Desktop\\Mini-Project-Course-Application\\Mini-Project-Course-Application\\Course-Application\\Service\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Rashad\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -201,8 +201,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Rashad\\OneDrive\\Desktop\\Новая папка\\Mini-Project-Course-Application\\Course-Application\\Repository\\Repository.csproj": {
-                "projectPath": "C:\\Users\\Rashad\\OneDrive\\Desktop\\Новая папка\\Mini-Project-Course-Application\\Course-Application\\Repository\\Repository.csproj"
+              "C:\\Users\\Rashad\\OneDrive\\Desktop\\Mini-Project-Course-Application\\Mini-Project-Course-Application\\Course-Application\\Repository\\Repository.csproj": {
+                "projectPath": "C:\\Users\\Rashad\\OneDrive\\Desktop\\Mini-Project-Course-Application\\Mini-Project-Course-Application\\Course-Application\\Repository\\Repository.csproj"
               }
             }
           }

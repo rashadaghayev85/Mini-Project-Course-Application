@@ -16,12 +16,12 @@ namespace Service.Services
     public class StudentService : IStudentService
     {
         private readonly IStudentRepository _StudentRepo;
-      
+
         private int count = 1;
         public StudentService()
         {
             _StudentRepo = new StudentRepository();
-            
+
         }
 
         public void Create(Student data)
@@ -42,17 +42,17 @@ namespace Service.Services
 
             _StudentRepo.Delete(student);
         }
-        public void DeleteAll(int ? id)
+        public void DeleteAll(int? id)
         {
             if (id is null) throw new ArgumentNullException();
 
-            List<Student> students =_StudentRepo.GetAllWithExpression(s => s.Group.Id == id);
+            List<Student> students = _StudentRepo.GetAllWithExpression(s => s.Group.Id == id);
 
             if (students is null) throw new NotFoundException(ResponseMessages.DataNotFound);
-            
-             _StudentRepo.DeleteAll((int)id);
-            
-            
+
+            _StudentRepo.DeleteAll((int)id);
+
+
         }
         public void Update(Student data)
         {
@@ -67,7 +67,7 @@ namespace Service.Services
 
         public List<Student> GetByAge(int age)
         {
-            return _StudentRepo.GetByAge( age);
+            return _StudentRepo.GetByAge(age);
         }
 
         public List<Student> GetByGroupId(int id)
@@ -91,6 +91,6 @@ namespace Service.Services
             return _StudentRepo.GetByNameOrSurname(searchText);
         }
 
-      
+
     }
 }

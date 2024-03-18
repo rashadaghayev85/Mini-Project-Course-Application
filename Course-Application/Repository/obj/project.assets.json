@@ -32,11 +32,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Rashad\\OneDrive\\Desktop\\Новая папка\\Mini-Project-Course-Application\\Course-Application\\Repository\\Repository.csproj",
+      "projectUniqueName": "C:\\Users\\Rashad\\OneDrive\\Desktop\\Mini-Project-Course-Application\\Mini-Project-Course-Application\\Course-Application\\Repository\\Repository.csproj",
       "projectName": "Repository",
-      "projectPath": "C:\\Users\\Rashad\\OneDrive\\Desktop\\Новая папка\\Mini-Project-Course-Application\\Course-Application\\Repository\\Repository.csproj",
+      "projectPath": "C:\\Users\\Rashad\\OneDrive\\Desktop\\Mini-Project-Course-Application\\Mini-Project-Course-Application\\Course-Application\\Repository\\Repository.csproj",
       "packagesPath": "C:\\Users\\Rashad\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Rashad\\OneDrive\\Desktop\\Новая папка\\Mini-Project-Course-Application\\Course-Application\\Repository\\obj\\",
+      "outputPath": "C:\\Users\\Rashad\\OneDrive\\Desktop\\Mini-Project-Course-Application\\Mini-Project-Course-Application\\Course-Application\\Repository\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Rashad\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -53,8 +53,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Rashad\\OneDrive\\Desktop\\Новая папка\\Mini-Project-Course-Application\\Course-Application\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\Rashad\\OneDrive\\Desktop\\Новая папка\\Mini-Project-Course-Application\\Course-Application\\Domain\\Domain.csproj"
+            "C:\\Users\\Rashad\\OneDrive\\Desktop\\Mini-Project-Course-Application\\Mini-Project-Course-Application\\Course-Application\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\Rashad\\OneDrive\\Desktop\\Mini-Project-Course-Application\\Mini-Project-Course-Application\\Course-Application\\Domain\\Domain.csproj"
             }
           }
         }

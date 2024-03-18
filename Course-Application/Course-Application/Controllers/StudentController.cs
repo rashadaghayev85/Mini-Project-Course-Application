@@ -6,6 +6,7 @@ using Service.Services;
 using Service.Services.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Text;
@@ -18,65 +19,107 @@ namespace Course_Application.Controllers
     {
         private readonly IStudentService _studentService;
         private readonly IGroupService _groupService;
+        private readonly IHelperService _helperService;
         public StudentController()
         {
             _studentService = new StudentService();
             _groupService = new GroupService();
+            _helperService = new HelperService();
         }
         public void Create()
         {
-            ConsoleColor.Cyan.WriteConsole("Add student name:");
-        Name: string name = Console.ReadLine();
-            if (string.IsNullOrWhiteSpace(name))
+            var result = _groupService.GetAll();
+            if (result.Count == 0)
             {
-                ConsoleColor.Red.WriteConsole("Input can't be empty");
-                goto Name;
-            }
-
-            ConsoleColor.Cyan.WriteConsole("Add student surname :");
-        Teachername: string surname = Console.ReadLine();
-            if (string.IsNullOrWhiteSpace(surname))
-            {
-                ConsoleColor.Red.WriteConsole("Input can't be empty");
-                goto Teachername;
-            }
-            ConsoleColor.Cyan.WriteConsole("Add student group name :");
-        Groupname: string groupname = Console.ReadLine();
-            if (string.IsNullOrWhiteSpace(groupname))
-            {
-                ConsoleColor.Red.WriteConsole("Input can't be empty");
-                goto Groupname;
-            }
-            var dedected = _groupService.GetByName(groupname);
-            if (dedected == null)
-            {
-                ConsoleColor.Red.WriteConsole("create student cannot,because group not exist");
-                return;
-            }
-            ConsoleColor.Cyan.WriteConsole("Add student age:");
-        Age: string ageStr = Console.ReadLine();
-            int age;
-            bool isCorrectAgeFormat = int.TryParse(ageStr, out age);
-            if (isCorrectAgeFormat)
-            {
-                try
-                {
-
-                    _studentService.Create(new Student { Name = name, Surname = surname, Age = age, Group = dedected });
-
-                    ConsoleColor.Green.WriteConsole("Data successfully added");
-                }
-                catch (Exception ex)
-                {
-                    ConsoleColor.Red.WriteConsole(ex.Message);
-                    goto Name;
-                }
-
+                ConsoleColor.Red.WriteConsole("Sorry, there is no active group at the moment");
             }
             else
             {
-                ConsoleColor.Red.WriteConsole("Age format is wrong, please add operation again");
-                goto Age;
+                ConsoleColor.Cyan.WriteConsole("Add student name:");
+            Name: string name = Console.ReadLine();
+                if (string.IsNullOrWhiteSpace(name))
+                {
+                    ConsoleColor.Red.WriteConsole("Input can't be empty");
+                    goto Name;
+                }
+                foreach (var item in name)
+                {
+                    if (!char.IsLetter(item))
+                    {
+                        ConsoleColor.Red.WriteConsole(ResponseMessages.IncorrectFormat);
+                        goto Name;
+                    }
+                }
+
+                ConsoleColor.Cyan.WriteConsole("Add student surname :");
+            Teachername: string surname = Console.ReadLine();
+                if (string.IsNullOrWhiteSpace(surname))
+                {
+                    ConsoleColor.Red.WriteConsole("Input can't be empty");
+                    goto Teachername;
+                }
+                foreach (var item in surname)
+                {
+                    if (!char.IsLetter(item))
+                    {
+                        ConsoleColor.Red.WriteConsole(ResponseMessages.IncorrectFormat);
+                        goto Name;
+                    }
+                }
+                var response = _groupService.GetAll();
+                if (response.Count == 0)
+                {
+                    return;
+                }
+                ConsoleColor.Yellow.WriteConsole("Possible selection options");
+                foreach (var item in result)
+                {
+                    ConsoleColor.DarkGreen.WriteConsole("Group Name: " + item.Name + " Id: " + item.Id);
+                }
+
+                ConsoleColor.Cyan.WriteConsole("Add student group name :");
+            Groupname: string groupname = Console.ReadLine();
+                if (string.IsNullOrWhiteSpace(groupname))
+                {
+                    ConsoleColor.Red.WriteConsole("Input can't be empty");
+                    goto Groupname;
+                }
+                var dedected = _groupService.GetByName(groupname);
+                if (dedected == null)
+                {
+                    ConsoleColor.Red.WriteConsole("create student cannot,because group not exist");
+                    return;
+                }
+                ConsoleColor.Cyan.WriteConsole("Add student age:");
+            Age: string ageStr = Console.ReadLine();
+                int age;
+                bool isCorrectAgeFormat = int.TryParse(ageStr, out age);
+                if (isCorrectAgeFormat)
+                {
+                    if (15 > age)
+                    {
+                        ConsoleColor.Red.WriteConsole("Student must be older");
+                        return;
+                    }
+                    try
+                    {
+
+                        _studentService.Create(new Student { Name = name, Surname = surname, Age = age, Group = dedected });
+
+                        ConsoleColor.Green.WriteConsole("Data successfully added");
+                    }
+                    catch (Exception ex)
+                    {
+                        ConsoleColor.Red.WriteConsole(ex.Message);
+                        goto Name;
+                    }
+
+                }
+                else
+                {
+                    ConsoleColor.Red.WriteConsole("Age format is wrong, please add operation again");
+                    goto Age;
+                }
             }
         }
         public void GetAll()
@@ -88,8 +131,11 @@ namespace Course_Application.Controllers
                 Console.WriteLine("Name: " + student.Name + " Surname: " + student.Surname + " Age: " + student.Age + " Id: " + student.Id + " Group Name:" + student.Group.Name);
             }
         }
+
+
         public void Delete()
         {
+            int count = 0;
             ConsoleColor.Cyan.WriteConsole("Add student id:");
         Id: string idStr = Console.ReadLine();
             int id;
@@ -104,6 +150,12 @@ namespace Course_Application.Controllers
                 catch (Exception ex)
                 {
                     ConsoleColor.Red.WriteConsole(ex.Message);
+
+                    if (_helperService.CheckTryCount(ref count))
+                    {
+                        return;
+                    }
+
                     goto Id;
                 }
             }
@@ -131,29 +183,55 @@ namespace Course_Application.Controllers
                 bool isCorrectIdFormat = int.TryParse(idStr, out id);
                 if (isCorrectIdFormat)
                 {
+
                     var data = _studentService.GetById(id);
+
                     if (data is null)
                     {
                         throw new NotFoundException(ResponseMessages.DataNotFound);
-                        
+
                     }
                     else
                     {
 
 
-                        Console.WriteLine(" enter new name ");
+                    NewName: Console.WriteLine(" enter new name ");
                         string newName = Console.ReadLine();
-                        if (newName != string.Empty)
+                        foreach (var item in newName)
                         {
-                            data.Name = newName;
-                            update = false;
+                            if (!char.IsLetter(item))
+                            {
+                                ConsoleColor.Red.WriteConsole(ResponseMessages.IncorrectFormat);
+                                goto NewName;
+                            }
                         }
-                        Console.WriteLine(" enter new surname ");
-                        string newSurname = Console.ReadLine();
-                        if (newName != string.Empty)
+                        if (!string.IsNullOrWhiteSpace(newName))
                         {
-                            data.Surname = newSurname;
-                            update = false;
+                            if (data.Name.ToLower().Trim() != newName.ToLower().Trim())
+                            {
+                                data.Name = newName;
+                                update = false;
+                            }
+
+                        }
+                    NewSurname: Console.WriteLine(" enter new surname ");
+                        string newSurname = Console.ReadLine();
+                        foreach (var item in newSurname)
+                        {
+                            if (!char.IsLetter(item))
+                            {
+                                ConsoleColor.Red.WriteConsole(ResponseMessages.IncorrectFormat);
+                                goto NewSurname;
+                            }
+                        }
+                        if (!string.IsNullOrWhiteSpace(newSurname))
+                        {
+                            if (data.Surname.ToLower().Trim() != newSurname.ToLower().Trim())
+                            {
+                                data.Surname = newSurname;
+                                update = false;
+                            }
+
                         }
                         Console.WriteLine("enter new age");
                         string ageStr = Console.ReadLine();
@@ -161,15 +239,31 @@ namespace Course_Application.Controllers
                         bool isCorrectAgeFormat = int.TryParse(ageStr, out age);
                         if (isCorrectAgeFormat && isCorrectAgeFormat != null)
                         {
-                            data.Age = age;
-                            update = false;
+                            if (15 > age)
+                            {
+                                ConsoleColor.Red.WriteConsole("Student must be older");
+                                return;
+                            }
+                            if (data.Age != age)
+                            {
+                                data.Age = age;
+                                update = false;
+                            }
+
                         }
                         Console.WriteLine(" enter new group ");
                         string newGroup = Console.ReadLine();
-                        if (newGroup != string.Empty)
+                        if (!string.IsNullOrWhiteSpace(newGroup))
                         {
-                            data.Group.Name = newGroup;
-                            update = false;
+                            if (data.Group.Name.ToLower().Trim() != newGroup.ToLower().Trim())
+                            {
+
+                                var result = _groupService.GetByName(newGroup);
+
+                                data.Group = result;
+                                update = false;
+                            }
+
                         }
                         if (update)
                         {
@@ -194,6 +288,7 @@ namespace Course_Application.Controllers
         }
         public void GetById()
         {
+            int count = 0;
             ConsoleColor.Cyan.WriteConsole("Add student id:");
         Id: string idStr = Console.ReadLine();
             int id;
@@ -203,11 +298,17 @@ namespace Course_Application.Controllers
                 try
                 {
                     var response = _studentService.GetById(id);
+
                     Console.WriteLine("Name:" + response.Name + " Surname:" + response.Surname + " Age:" + response.Age);
                 }
                 catch (Exception ex)
                 {
                     ConsoleColor.Red.WriteConsole(ex.Message);
+                    if (_helperService.CheckTryCount(ref count))
+                    {
+                        ConsoleColor.Green.WriteConsole("Process finished");
+                        return;
+                    }
                     goto Id;
                 }
             }
@@ -234,6 +335,9 @@ namespace Course_Application.Controllers
             }
             else
             {
+
+                ConsoleColor.Red.WriteConsole("age format is wrong, please add again");
+
                 goto Age;
             }
 
@@ -267,6 +371,7 @@ namespace Course_Application.Controllers
                 catch (Exception ex)
                 {
                     ConsoleColor.Red.WriteConsole(ex.Message);
+
                     goto Id;
                 }
             }

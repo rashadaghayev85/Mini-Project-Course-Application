@@ -6,7 +6,7 @@ GroupController groupController = new GroupController();
 StudentController studentController = new StudentController();
 while (true)
 {
-     GetMenues();
+    GetMenues();
 Operation: string operationStr = Console.ReadLine();
 
     int operation;
@@ -40,7 +40,7 @@ Operation: string operationStr = Console.ReadLine();
                 groupController.GetById();
                 break;
             case (int)OperationType.GroupsGetByName:
-                groupController.SearchGroupsByName();
+                groupController.GroupsByName();
                 break;
             case (int)OperationType.StudentCreate:
                 studentController.Create();
@@ -80,19 +80,19 @@ Operation: string operationStr = Console.ReadLine();
 static void GetMenues()
 {
     ConsoleColor.Cyan.WriteConsole("Choose one operation :\n" +
-         "----------------------------" + "-----------------------------\n" +
-        "| Group opinion:            |" + "Student opinion:            |\n" +
-        "|---------------------------|" + "--------------------------- |\n" +
-        "| 1-Group Create            |" + "9-Student Create            |\n" +
-        "| 2-Group Delete            |" + "10-Student Delete           |\n" +
-        "| 3-Group Uptade            |" + "11-Student Update           |\n" +
-        "| 4-Group Get All           |" + "12-Get all students         |\n" +
-        "| 5-Group Get All By Room   |" + "13-Student Get By Age       |\n" +
-        "| 6-Group Get All By Teacher|" + "14-Student Get By Id        |\n" +
-        "| 7-Group Get By Id         |" + "15-Student Get By Group Id  |\n" +
-        "| 8-Groups Get By Name      |" + "16-StudentGetByNameOrSurname|\n" +
-        "----------------------------------------------------------\n" );
+                                     "    ----------------------------" + "-----------------------------\n" +
+                                    "    | Group opinion:            |" + "Student opinion:            |\n" +
+                                    "    |---------------------------|" + "--------------------------- |\n" +
+                                    "    | 1-Group Create            |" + "9-Student Create            |\n" +
+                                    "    | 2-Group Delete            |" + "10-Student Delete           |\n" +
+                                    "    | 3-Group Uptade            |" + "11-Student Update           |\n" +
+                                    "    | 4-Group Get All           |" + "12-Get all students         |\n" +
+                                    "    | 5-Group Get All By Room   |" + "13-Student Get By Age       |\n" +
+                                    "    | 6-Group Get All By Teacher|" + "14-Student Get By Id        |\n" +
+                                    "    | 7-Group Get By Id         |" + "15-Student Get By Group Id  |\n" +
+                                    "    | 8-Groups Get By Name      |" + "16-StudentGetByNameOrSurname|\n" +
+                                    "    ----------------------------------------------------------\n");
 
-         
+
 }
-//1 - Group create,2-Group Delete,3-Group Uptade
+//1 - Group c1 - Group create,2-Group Delete,3-Group Uptade

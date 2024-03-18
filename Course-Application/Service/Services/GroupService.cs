@@ -19,7 +19,7 @@ namespace Service.Services
         private int count = 1;
         public GroupService()
         {
-            _GroupRepo=new GroupRepository();
+            _GroupRepo = new GroupRepository();
         }
         public void Create(Group data)
         {
@@ -42,7 +42,7 @@ namespace Service.Services
         public void Update(Group data)
         {
             if (data is null) throw new ArgumentNullException();
-               _GroupRepo.Update(data);
+            _GroupRepo.Update(data);
 
         }
 
@@ -53,7 +53,7 @@ namespace Service.Services
 
         public List<Group> GetAllByRoom(string roomName)
         {
-            var response=_GroupRepo.GetAllByRoom(roomName);
+            var response = _GroupRepo.GetAllByRoom(roomName);
             return response;
         }
 
@@ -69,12 +69,12 @@ namespace Service.Services
 
             Group group = _GroupRepo.GetById((int)id);
 
-           // if (group is null) throw new NotFoundException(ResponseMessages.DataNotFound);
+            // if (group is null) throw new NotFoundException(ResponseMessages.DataNotFound);
 
             return group;
         }
 
-       
+
 
         public Group GetByName(string groupName)
         {
